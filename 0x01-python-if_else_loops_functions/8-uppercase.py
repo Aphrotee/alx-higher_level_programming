@@ -12,5 +12,5 @@ def uppercase(sstr):
             print("{}".format(chr(b)), end="")
     b = ord(sstr[c-1])
     if (b >= 97) and (b <= 122):
-       b -= 32
+        b -= 32
     print("{}".format(chr(b)))
