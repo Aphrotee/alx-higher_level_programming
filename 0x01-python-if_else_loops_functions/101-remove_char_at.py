@@ -15,4 +15,3 @@ def remove_char_at(str, n):
         cp2 = cp[n + 1:]
         cp = cp1 + cp2
     return cp
-
