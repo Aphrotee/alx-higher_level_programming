@@ -5,8 +5,8 @@ def uppercase(sstr):
         b = ord(sstr[a])
         if (b >= 97) and (b <= 122):
             b = b - 32
-        print(chr(b), end="")
+        print("{}".format(chr(b)), end="")
     b = ord(sstr[a+1])
     if (b >= 97) and (b <= 122):
         b -= 32
-    print(chr(b) + "\n")
+    print("{}".format(chr(b)))
