@@ -6,9 +6,9 @@ if __name__ == "__main__":
     b = 5
     u = add(a, b)
     print("{} + {} = {}".format(a, b, u))
-    v = str(sub(a, b))
+    v = sub(a, b)
     print("{} - {} = {}".format(a, b, v))
-    w = str(mul(a, b))
+    w = mul(a, b)
     print("{} * {} = {}".format(a, b, w))
-    x = str(div(a, b))
+    x = div(a, b)
     print("{} / {} = {}".format(a, b, x))
