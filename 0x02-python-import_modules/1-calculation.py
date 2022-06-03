@@ -8,7 +8,5 @@ if __name__ == "__main__":
     v = str(sub(a, b))
     w = str(mul(a, b))
     x = str(div(a, b))
-    a = str(a)
-    b = str(b)
     print("{} + {} = {}\n{} - {} = {}\n{} * {} = {}\n{} / {} = {}\
         ".format(a, b, u, a, b, v, a, b, w, a, b, x))
