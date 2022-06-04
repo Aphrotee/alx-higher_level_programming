@@ -9,4 +9,4 @@ def print_matrix_integer(matrix=[[]]):
             if j != a - 1:
                 print("{:d} ".format(i[j]), end="")
             else:
-                print("{:d}$".format(i[j]))
+                print("{:d}".format(i[j]))
