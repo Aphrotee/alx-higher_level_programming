@@ -10,7 +10,7 @@
 int is_palindrome(listint_t **head)
 {
 	int j, p, t, x, *list;
-	listint_t temp[100];
+	listint_t *temp;
 
 	if (head == NULL || *head == NULL)
 		return (1);
@@ -32,10 +32,14 @@ int is_palindrome(listint_t **head)
 	while (temp->next != NULL)
 	{
 		if (temp->n != list[t])
+		{
+			free(list);
 			return (0);
+		}
 		temp = temp->next;
 		t--;
 	}
+	free(list);
 	return (1);
 }
 /**
@@ -67,12 +71,13 @@ int getSize(listint_t **temp)
 int *getArray(listint_t **temp, int j)
 {
 	listint_t *tem = *temp;
-	int a, b, list[100];
+	int a, b, *list;
 
 	if (j % 2 == 0)
 		a = j / 2;
 	else
-	       a = (j - 1) / 2;	
+	       a = (j - 1) / 2;
+	list = (int *)malloc(sizeof(int) * a);
 	for (b = 0; b < a; b++)
 	{
 		list[b] = tem->n;
