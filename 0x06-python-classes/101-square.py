@@ -24,9 +24,10 @@ class Square:
     def __str__(self):
         squarestr = ""
         if self.__size == 0:
+            squarestr += "\n"
             return squarestr
         for i in range(self.__position[1]):
-            squarestr += ""
+            squarestr += "\n"
         for i in range(self.__size):
             squarestr += (" " * self.position[0]) + ("#" * self.__size) + "\n"
         squarestr = squarestr[: len(squarestr) - 1]
