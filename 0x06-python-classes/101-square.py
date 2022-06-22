@@ -22,16 +22,18 @@ class Square:
         self.position = position
 
     def __str__(self):
-        squarestr = ""
+        total = ""
         if self.__size == 0:
-            squarestr += "\n"
-            return squarestr
+            total += "\n"
+            return total
         for i in range(self.__position[1]):
-            squarestr += "\n"
+            total += "\n"
         for i in range(self.__size):
-            squarestr += (" " * self.position[0]) + ("#" * self.__size) + "\n"
-        squarestr = squarestr[: len(squarestr) - 1]
-        return squarestr
+            total += (" " * self.__position[0])
+            total += ("#" * self.__size)
+            if i != (self.__size - 1):
+                total += "\n"
+        return total
 
     @property
     def size(self):
