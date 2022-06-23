@@ -21,17 +21,19 @@ class Square:
         self.size = size
         self.position = position
 
-    def __repr__(self):
-        squarestr = ""
+     def __repr__(self):
+        string = ""
         if self.__size == 0:
-            squarestr += "\n"
-            return squarestr
-        for i in range(self.__position[1]):
-            squarestr += "\n"
-        for i in range(self.__size):
-            squarestr += (" " * self.position[0]) + ("#" * self.__size) + "\n"
-        squarestr = squarestr[: len(squarestr) - 1]
-        return squarestr
+            return ""
+        for row in range(self.__position[1]):
+            string += "\n"
+        for x in range(self.__size):
+            for space in range(self.__position[0]):
+                string += " "
+            for i in range(self.__size):
+                string += "#"
+            string += "\n"
+        return string[:-1]
 
     @property
     def size(self):
