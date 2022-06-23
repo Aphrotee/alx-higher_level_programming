@@ -3,14 +3,6 @@
 import dis
 import math
 
-"""
-103-magic_class is a module that provides a MagicClass Object for a
-Circle which has a private instance attribute "radius"
-which must either be float or integer.
-This class has a method to calculate the area of the circle
-and a method to calculate the circumference of the circle
-"""
-
 
 class MagicClass:
 
