@@ -76,16 +76,15 @@ class SinglyLinkedList:
             return
         temp = self.__head
         temp1 = self.__head.next_node
-
-        while temp is not None:
-            if value <= temp.data:
+        if value <= temp.data:
                 new.next_node = temp
                 self.__head = new
-                break
+                return
             elif temp1 is None:
                 temp.next_node = new
-                break
-            elif temp.data <= value <= temp1.data:
+                return
+        while temp is not None:
+            if temp.data <= value <= temp1.data:
                 temp.next_node = new
                 new.next_node = temp1
                 break
