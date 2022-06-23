@@ -5,7 +5,7 @@ def _isprime(n):
     if n == 2 or n == 3 or n == 5:
         return True
     for i in range(2, j):
-        if n % i == 0:
+        if n % i == 0 or n == 4:
             return False
     return True
 
