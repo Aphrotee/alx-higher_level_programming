@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 This is the "Square"  module.
 This module provides a simple Square class with initialize size.
@@ -21,7 +22,7 @@ class Square:
         self.size = size
         self.position = position
 
-     def __repr__(self):
+    def __repr__(self):
         string = ""
         if self.__size == 0:
             return ""
