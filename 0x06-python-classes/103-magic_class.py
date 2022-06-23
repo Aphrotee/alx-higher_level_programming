@@ -6,14 +6,6 @@ import math
 
 class MagicClass:
 
-    """
-    This is a class Object for a
-    Circle which has a private instance attribute "radius"
-    which must either be float or integer.
-    This class has a method to calculate the area of the circle
-    and a method to calculate the circumference of the circle
-    """
-
 
     def __init__(self, radius=0):
         self.__radius = 0
