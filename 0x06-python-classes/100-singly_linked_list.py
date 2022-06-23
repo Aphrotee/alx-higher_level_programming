@@ -80,7 +80,7 @@ class SinglyLinkedList:
                 new.next_node = temp
                 self.__head = new
                 return
-            elif temp1 is None:
+        elif temp1 is None:
                 temp.next_node = new
                 return
         while temp is not None:
