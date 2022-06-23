@@ -22,7 +22,7 @@ class MagicClass:
     and a method to calculate the circumference of the circle
     """
 
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         if type(radius) != float and type(radius) != int:
             raise TypeError("radius must  be a number")
         else:
