@@ -41,12 +41,6 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         self.__height = value
 
-    def area(self):
-        return (self.__height * self.__width)
-
-    def perimeter(self):
-        return (2 * (self.__height + self.__width))
-
     def __str__(self):
         rect = ""
         if self.__height == 0 or self.__width == 0:
@@ -62,3 +56,9 @@ class Rectangle:
 
     def __del__(self):
         print("Bye Rectangle...")
+
+    def area(self):
+        return (self.__height * self.__width)
+
+    def perimeter(self):
+        return (2 * (self.__height + self.__width))
