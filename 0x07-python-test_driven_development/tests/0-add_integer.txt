@@ -65,3 +65,13 @@ NameError: name 'tem' is not defined
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
+
+>>> print(add_integer(4.5678398465673783E443, 2.9857247896498658659829826))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+>>> print(add_integer(4, float("nan")))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer

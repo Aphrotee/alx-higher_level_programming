@@ -83,3 +83,16 @@ TypeError: div must be a number
 
 >>> matrix_divided(a, 0.5)
 [[2.0, 4.0, 6.0], [8.0, 10.0, 12.0]]
+
+>>> matrix_divided(a, float('inf'))
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+>>> matrix_divided()
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+>>> matrix_divided(a)
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
