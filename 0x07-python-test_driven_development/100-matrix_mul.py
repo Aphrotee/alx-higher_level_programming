@@ -6,6 +6,9 @@ This module supplies the function matrix_mul.
 
 
 def matrix_mul(m_a, m_b):
+    """
+    Performs matrix multiplication on two matrices (list of lists) 
+    """
     if isinstance(m_a, list):
         if len(m_a) == 0:
             raise ValueError("m_a can't be empty")
