@@ -1,4 +1,4 @@
-#!/usr/bin
+#!/usr/bin/python3
 """
 This module provides the function "read_file".
 """
