@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+This script demonstrates json adding all arguments to
+a Python list, and then save them to a file.
+"""
+
 
 import json
 import sys
@@ -8,6 +13,9 @@ load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 
 def main():
+    """
+    The main function
+    """
     path = Path("add_item.json")
     if path.is_file():
         jslist = load_from_json_file("add_item.json")
