@@ -12,7 +12,7 @@ def pascal_triangle(n):
     if n <= 0:
         return []
     pt = [[1]]
-    for a in range(n):
+    for a in range(n - 1):
         new = [1]
         itr = pt[-1]
         for i in range(len(pt[-1])- 1):
