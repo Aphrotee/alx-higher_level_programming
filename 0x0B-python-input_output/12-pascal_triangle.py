@@ -15,7 +15,7 @@ def pascal_triangle(n):
     for a in range(n - 1):
         new = [1]
         itr = pt[-1]
-        for i in range(len(pt[-1])- 1):
+        for i in range(len(pt[-1]) - 1):
             new.append(itr[i] + itr[i + 1])
         new.append(1)
         pt.append(new)
