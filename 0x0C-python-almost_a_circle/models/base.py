@@ -57,6 +57,8 @@ class Base:
         """
         saves json string to json file
         """
+        for a in list_objs:
+            a = a.to_dictionary()
         js = cls.to_json_string(list_objs)
         name_file = cls.__name__ + ".json"
         with open(name_file, 'w', encoding="UTF-8") as fd:
@@ -82,7 +84,10 @@ class Base:
             inst_dict_js = fd.read()
         inst_dict = cls.from_json_string(inst_dict_js)
         for inst in inst_dict:
-            list_inst.append(cls.create(**inst))
+            if type(inst) == dict:
+                list_inst.append(cls.create(**inst))
+            else:
+                list_inst.append(inst)
         return list_inst
 
     @staticmethod
