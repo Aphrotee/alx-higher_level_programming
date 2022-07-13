@@ -122,25 +122,25 @@ class Rectangle(Base):
                                                        self.y, self.width,
                                                        self.height)
 
-   def update(self, *args, **kwargs):
-       """
-       Updates rectangle values
-       """
+    def update(self, *args, **kwargs):
+        """
+        Updates rectangle values
+        """
 
-       if len(kwargs) != 0:
-           for k, v in kwargs.items():
-               setattr(self, k, v)
-       elif len(args) != 0:
-           try:
-               self.id = args[0]
-               self.__width = args[1]
-               self.__height = args[2]
-               self.__x = args[3]
-               self.__y = args[4]
-           except IndexError:
-               pass
-       else:
-           print()
+        if len(kwargs) != 0:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
+        elif len(args) != 0:
+            try:
+                self.id = args[0]
+                self.__width = args[1]
+                self.__height = args[2]
+                self.__x = args[3]
+                self.__y = args[4]
+            except IndexError:
+                pass
+        else:
+            print()
 
     def update_csv(self, csv):
         """
