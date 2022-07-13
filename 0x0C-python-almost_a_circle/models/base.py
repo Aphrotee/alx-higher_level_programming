@@ -30,15 +30,13 @@ class Base:
         converts a list of dictionaries to json string
         """
         js = []
-        if len(list_dictionaries) == 0:
+        if list_dictionaries is None:
             js = "[]"
         else:
-            if isinstance(list_dictionaries[0], Base):
-                for a in list_dictionaries:
-                    js.append(a.to_dictionary())
-                js = json.dumps(js)
-            else:
-                js = json.dumps(list_dictionaries)
+            for a in list_dictionaries:
+                if isinstance(a, Base):
+                    a = a.to_dictionary
+            js = json.dumps(list_dictionaries)
         return js
 
     @staticmethod
@@ -46,7 +44,7 @@ class Base:
         """
         converts json string to instance
         """
-        if len(json_string) == 0:
+        if json_string == "":
             rev_js = []
         else:
             rev_js = json.loads(json_string)
