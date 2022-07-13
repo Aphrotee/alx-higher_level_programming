@@ -45,33 +45,21 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """
-        updates attributes
+        Update attributes
         """
-        if len(args) != 0:
-            i = 0
-            for a in args:
-                i += 1
-                if i == 1:
-                    self.id = a
-                elif i == 2:
-                    self.size = a
-                elif i == 3:
-                    self.x = a
-                elif i == 4:
-                    self.y = a
+        if len(kwargs) != 0:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
+        elif len(args) != 0:
+            try:
+                self.id = args[0]
+                self.size = args[1]
+                self.x = args[2]
+                self.y = args[3]
+            except IndexError:
+                pass
         else:
-            arg_dict = {'id': 1, 'size': 2, 'x': 3, 'y': 4}
-            for key, value in kwargs.items():
-                if key in arg_dict:
-                    i = arg_dict[key]
-                    if i == 1:
-                        self.id = value
-                    elif i == 2:
-                        self.size = value
-                    elif i == 3:
-                        self.x = value
-                    elif i == 4:
-                        self.y = value
+            print()
 
     def update_csv(self, csv):
         """
