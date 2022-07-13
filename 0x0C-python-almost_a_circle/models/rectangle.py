@@ -123,38 +123,24 @@ class Rectangle(Base):
                                                        self.height)
 
    def update(self, *args, **kwargs):
-        """
-        updates attributes
-        """
-        if len(args) != 0:
-            i = 0
-            for a in args:
-                i += 1
-                if i == 1:
-                    self.id = a
-                elif i == 2:
-                    self.width = a
-                elif i == 3:
-                    self.height = a
-                elif i == 4:
-                    self.x = a
-                elif i == 5:
-                    self.y = a
-        else:
-            arg_dict = {'id': 1, 'width': 2, 'height': 3, 'x': 4, 'y': 5}
-            for key, value in kwargs.items():
-                if key in arg_dict:
-                    i = arg_dict[key]
-                    if i == 1:
-                        self.id = value
-                    elif i == 2:
-                        self.width = value
-                    elif i == 3:
-                        self.height = value
-                    elif i == 4:
-                        self.x = value
-                    elif i == 5:
-                        self.y = value
+       """
+       Updates rectangle values
+       """
+
+       if len(kwargs) != 0:
+           for k, v in kwargs.items():
+               setattr(self, k, v)
+       elif len(args) != 0:
+           try:
+               self.id = args[0]
+               self.__width = args[1]
+               self.__height = args[2]
+               self.__x = args[3]
+               self.__y = args[4]
+           except IndexError:
+               pass
+       else:
+           print()
 
     def update_csv(self, csv):
         """
