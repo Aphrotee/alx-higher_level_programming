@@ -5,6 +5,7 @@ Base Class module
 
 
 import json
+import os
 
 
 class Base:
@@ -30,12 +31,20 @@ class Base:
         converts a list of dictionaries to json string
         """
         js = []
-        if list_dictionaries is None:
+        djs = []
+        if (list_dictionaries is None):
+            js = "[]"
+        elif len(list_dictionaries) == 0:
             js = "[]"
         else:
+            i = 0
+            j = 0
             for a in list_dictionaries:
                 if isinstance(a, Base):
-                    a = a.to_dictionary
+                    djs.append(a.to_dictionary())
+                    list_dictionaries[i] = djs[j]
+                    j += 1
+                i += 1
             js = json.dumps(list_dictionaries)
         return js
 
@@ -44,7 +53,9 @@ class Base:
         """
         converts json string to instance
         """
-        if json_string == "":
+        if type(json_string) != str:
+            rev_js = []
+        elif len(json_string) == 0:
             rev_js = []
         else:
             rev_js = json.loads(json_string)
@@ -55,8 +66,6 @@ class Base:
         """
         saves json string to json file
         """
-        for a in list_objs:
-            a = a.to_dictionary()
         js = cls.to_json_string(list_objs)
         name_file = cls.__name__ + ".json"
         with open(name_file, 'w', encoding="UTF-8") as fd:
@@ -78,14 +87,13 @@ class Base:
         """
         list_inst = []
         file_name = cls.__name__ + ".json"
+        if not os.path.isfile(file_name):
+            return []
         with open(file_name, encoding="UTF-8") as fd:
             inst_dict_js = fd.read()
         inst_dict = cls.from_json_string(inst_dict_js)
         for inst in inst_dict:
-            if type(inst) == dict:
-                list_inst.append(cls.create(**inst))
-            else:
-                list_inst.append(inst)
+            list_inst.append(cls.create(**inst))
         return list_inst
 
     @staticmethod
@@ -142,6 +150,8 @@ class Base:
         """
         list_inst = []
         file_name = cls.__name__ + ".csv"
+        if not os.path.isfile(file_name):
+            return []
         with open(file_name, encoding="UTF-8") as fd:
             inst_csv_str = fd.read()
         inst_csv = cls.from_json_string(inst_csv_str)
