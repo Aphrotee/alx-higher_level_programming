@@ -1,4 +1,4 @@
-#!usr/bin/node
+#!/usr/bin/node
 module.exports = {
   callMeMoby: function (x, theFunction) {
     let i = 0;
