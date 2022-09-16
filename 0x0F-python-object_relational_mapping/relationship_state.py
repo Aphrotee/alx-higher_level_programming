@@ -1,31 +1,21 @@
 #!/usr/bin/python3
-
-"""
- a python file that contains the
-class definition of a State and
-an instance Base = declarative_base()
-"""
-
-
-from sqlalchemy import Column, Integer, String
+""" Define State model """
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, String, Integer
 from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
 
 class State(Base):
-    """
-    This class inherits from Base
-    and it links to the MySQL table states.
-    """
-
+    """ Define a class State to be linked to db table """
     __tablename__ = 'states'
-    id = Column(Integer, primary_key=True,
-                nullable=False, autoincrement=True)
-    name = Column(String(128), nullable=False)
-    cities = relationship('City', backref='state', cascade='all, delete')
 
-    def __init__(self, **kwargs):
-        """initialize object"""
-        self.__dict__.update(kwargs)
+    id = Column(Integer, nullable=False,
+                autoincrement=True, unique=True,
+                primary_key=True)
+
+    name = Column(String(128), nullable=False)
+
+    cities = relationship('City', cascade='all, delete', backref='state')
+
