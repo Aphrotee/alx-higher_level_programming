@@ -25,5 +25,6 @@ if __name__ == '__main__':
 
     for st in all_state:
         print("{}: {}".format(st.id, st.name))
-        print(st.cities)
+        for ct in st.cities:
+            print("    {}: {}".format(ct.id, ct.name))
     session.close()

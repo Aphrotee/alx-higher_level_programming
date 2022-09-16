@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
 """
-This is a script that creates the
-State “California” with the City
-“San Francisco” from the database hbtn_0e_100_usa
+This is a script that  prints all City
+objects from the database hbtn_0e_14_usa
 """
 
 
@@ -18,17 +17,12 @@ if __name__ == '__main__':
         sys.argv[1],
         sys.argv[2],
         sys.argv[3]), pool_pre_ping=True)
-    Base.metadata.create_all(engine)
 
     Session = sessionmaker()
     session = Session(bind=engine)
 
-    new_state = State(name="California")
-    new_city = City(name="San Francisco", state=new_state)
+    all_cities = session.query(City).order_by(City.id)
 
-    new_state.cities.append(new_city)
-
-    session.add(new_state)
-    session.add(new_city)
-    session.commit()
+    for ct in all_cities:
+        print("{}: {} -> {}".format(ct.id, ct.name, ct.state.name))
     session.close()
