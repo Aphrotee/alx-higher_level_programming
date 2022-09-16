@@ -24,3 +24,7 @@ class City(Base):
                 nullable=False, autoincrement=True)
     name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
+
+    def __init__(self, **kwargs):
+        """initialize object"""
+        self.__dict__.update(kwargs)
