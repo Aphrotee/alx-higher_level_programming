@@ -12,10 +12,12 @@ import urllib.parse
 import urllib.request
 
 
-if '__name__' == '__main__':
-    req = urllib.request.Request(sys.argv[1], data)
+if __name__ == '__main__':
+    req = urllib.request.Request(sys.argv[1])
     try:
         response = urllib.request.urlopen(req)
+        page = response.read()
+        print(page.decode('utf-8'))
     except HTTPError as e:
         print("Error code: {}".format(e.code))
         
