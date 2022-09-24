@@ -10,8 +10,8 @@ import sys
 
 
 if __name__ == '__main__':
-    req = urllib.request.Request(sys.argv[1])
     try:
+        req = urllib.request.Request(sys.argv[1])
         response = urllib.request.urlopen(req)
         page = response.read()
         print(page.decode('utf-8'))
