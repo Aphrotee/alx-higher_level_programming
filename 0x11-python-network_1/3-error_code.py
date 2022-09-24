@@ -12,9 +12,9 @@ import sys
 if __name__ == '__main__':
     try:
         req = urllib.request.Request(sys.argv[1])
-        response = urllib.request.urlopen(req)
-        page = response.read()
-        print(page.decode('utf-8'))
+        with urllib.request.urlopen(req) as response:
+            page = response.read()
+            print(page.decode('utf-8'))
     except urllib.error.HTTPError as e:
         print("Error code: {}".format(e.code))
         
