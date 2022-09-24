@@ -10,8 +10,8 @@ import requests
 import sys
 
 if __name__ == '__main__':
-    r = requests.get(sys.argv[1], data={'email': sys.argv[1]})
     try:
+        r = requests.get(sys.argv[1])
         r.raise_for_status()
         print(r.content.decode('utf-8'))
     except requests.exceptions.HTTPError:
