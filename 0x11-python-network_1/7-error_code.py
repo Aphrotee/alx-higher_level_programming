@@ -1,18 +1,17 @@
 #!/usr/bin/python3
-
+"""Display response body
 """
-This is a Python script that takes in a URL, sends a request to
-the URL and displays the body of the response.
-"""
-
 
 import requests
-import sys
+from sys import argv
 
 if __name__ == '__main__':
+
+    url = argv[1]
+
     try:
-        r = requests.get(sys.argv[1])
+        r = requests.get(url)
         r.raise_for_status()
-        print(r.content.decode('utf-8'))
+        print(r.text)
     except:
-        print("Error Code: {}".format(r.status_code))
+        print('Error code: {}'.format(r.status_code))
