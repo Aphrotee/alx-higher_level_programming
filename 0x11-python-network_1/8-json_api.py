@@ -10,7 +10,7 @@ import requests
 import sys
 
 if __name__ == '__main__':
-    r = requests.get(sys.argv[1], data={'q': sys.argv[1]})
+    r = requests.get('http://0.0.0.0:5000/search_user', data={'q': sys.argv[1]})
     if r.headers.get('content-type') == 'application/json':
         try:
             js = r.json()
