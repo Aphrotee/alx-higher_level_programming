@@ -11,6 +11,7 @@ def find_peak(list_of_integers):
         return
     if len(list_of_integers) == 0:
         return
+    """
     pk = list_of_integers[0]
     i = 0
     j = -1
@@ -23,4 +24,6 @@ def find_peak(list_of_integers):
             pk = temp
         i += 1
         j -= 1
-    return pk
+    """
+    list_of_integers = list_of_integers.sort()
+    return list_of_integers[-1]
