@@ -25,5 +25,5 @@ def find_peak(list_of_integers):
         i += 1
         j -= 1
     """
-    list_of_integers = list_of_integers.sort()
+    list_of_integers.sort()
     return list_of_integers[-1]
