@@ -50,6 +50,13 @@ def run():
             values = neededString.split(' ')
             status = values[0]
             size = values[1]
+            try:
+                status = int(status)
+                size = int(size)
+                status = str(status)
+                size = str(size)
+            except Exception:
+                continue
             if status in statusCodes:
                 responses[status] += 1
             try:
@@ -66,6 +73,7 @@ def run():
         print_log(fileSize, statusCodes, responses)
         print(e)
         sys.exit(1)
+
 
 if __name__ == '__main__':
     run()
