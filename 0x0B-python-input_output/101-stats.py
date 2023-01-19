@@ -60,6 +60,7 @@ def run():
                 print_log(fileSize, statusCodes, responses)
                 continue
             i += 1
+        print_log(fileSize, statusCodes, responses)
     except KeyboardInterrupt as e:
         print_log(fileSize, statusCodes, responses)
         print(e)
