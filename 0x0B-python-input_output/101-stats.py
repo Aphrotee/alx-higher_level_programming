@@ -51,9 +51,9 @@ def run():
             status = values[0]
             size = values[1]
             try:
-                status = int(status)
+                # status = int(status)
                 size = int(size)
-                status = str(status)
+                # status = str(status)
                 size = str(size)
             except Exception:
                 continue
